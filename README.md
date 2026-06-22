@@ -9,7 +9,8 @@ Public knowledge base for LLMs using the [CarbonInsights MCP server](https://git
 | File | Purpose |
 |------|---------|
 | [SKILL.md](SKILL.md) | **Main entry** — Cursor Agent Skill + LLM quick reference |
-| [reference/persona-and-rules.md](reference/persona-and-rules.md) | Full role, data authority, charts, presentation rules |
+| [reference/operational-role.md](reference/operational-role.md) | **Operational role** — identity, scope, persistence, conflict handling |
+| [reference/persona-and-rules.md](reference/persona-and-rules.md) | Trader lens, data authority, charts, presentation |
 | [reference/tools.md](reference/tools.md) | Every MCP tool with params and when-to-use |
 | [reference/prompts.md](reference/prompts.md) | MCP prompt templates (workflows) |
 | [reference/workflows.md](reference/workflows.md) | Step-by-step playbooks |
