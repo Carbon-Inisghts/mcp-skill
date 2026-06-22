@@ -260,12 +260,98 @@ Raw rows — use `analyze_table` instead for analysis questions.
 
 ---
 
+## Advanced desk tools
+
+### `analyze_eua_market`
+
+EUA futures briefing — price momentum, open interest, market read. Auto-resolves `ckz_futures_view`.
+
+```json
+{}
+```
+
+---
+
+### `analyze_aviation`
+
+Aviation-only CO₂ and flight trends. Auto-resolves `cl_ind_aviation_emissions`.
+
+```json
+{}
+```
+
+---
+
+### `analyze_fuel_switch`
+
+Gas vs coal generation trends and EUA intensity implication.
+
+```json
+{}
+```
+
+---
+
+### `compare_yoy`
+
+Latest N-day window vs same calendar window one year prior.
+
+```json
+{
+  "table": "cl_pow_daily_emissions_eu_api",
+  "window_days": 7
+}
+```
+
+---
+
+### `fundamentals_price_read` ⭐
+
+Merge emissions desk + EUA futures — flags alignment/divergence.
+
+```json
+{}
+```
+
+---
+
+### `desk_alert_scan`
+
+Scan all accessible tables for large % moves (default ≥10%).
+
+```json
+{ "threshold_pct": 10 }
+```
+
+---
+
+### `get_chart_series`
+
+Structured time-series JSON for charts — exact CarbonInsights points.
+
+```json
+{
+  "table": "ckz_futures_view",
+  "metric": "Close",
+  "max_points": 60
+}
+```
+
+---
+
 ## Tool workflow summary
 
 | Goal | Tool |
 |------|------|
 | Pick the right dataset | `suggest_dataset` |
 | **Full EUA desk (all tables)** | **`multi_table_desk_briefing`** |
+| **Fundamentals vs price** | **`fundamentals_price_read`** |
+| **Morning alerts / large moves** | **`desk_alert_scan`** |
+| EUA futures / market | `analyze_eua_market` |
+| Aviation only | `analyze_aviation` |
+| Gas vs coal fuel switch | `analyze_fuel_switch` |
+| Year-over-year | `compare_yoy` |
+| Chart series (JSON) | `get_chart_series` |
 | General analysis | `analyze_table` |
 | EU power emissions | `analyze_power_emissions` |
 | EU industry / aviation | `analyze_industry_emissions` |

@@ -11,6 +11,10 @@ Public knowledge base for LLMs using the [CarbonInsights MCP server](https://git
 | [reference/tools.md](reference/tools.md) | Every MCP tool with params and when-to-use |
 | [reference/prompts.md](reference/prompts.md) | MCP prompt templates (workflows) |
 | [reference/workflows.md](reference/workflows.md) | Step-by-step playbooks |
+| [reference/getting-started.md](reference/getting-started.md) | Client onboarding (5 min) |
+| [reference/datasets.md](reference/datasets.md) | Full table catalog + tool mapping |
+| [reference/domains/](reference/domains/) | Power, industry, maritime, market playbooks |
+| [reference/templates/daily-desk-brief.md](reference/templates/daily-desk-brief.md) | Morning desk report template |
 | [reference/setup.md](reference/setup.md) | Client auth configuration |
 | [examples.md](examples.md) | Good vs bad LLM responses |
 
@@ -58,9 +62,9 @@ Paste `SKILL.md` or `reference/persona-and-rules.md` into system instructions wh
 
 - **Repo:** [mcp_server](https://github.com/CarbonInsights/mcp_server)
 - **Hosted example:** `https://mcp-server-cq2t.onrender.com/mcp`
-- **Tools:** 18 read-only analysis and data tools
-- **Prompts:** 13 workflow templates
-- **Resources:** 4 markdown knowledge URIs
+- **Tools:** 26 read-only analysis and data tools
+- **Prompts:** 19 workflow templates
+- **Resources:** 5 markdown knowledge URIs
 
 ## License
 

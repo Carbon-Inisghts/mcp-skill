@@ -163,3 +163,55 @@ Present in this order:
 6. **Forecast** — forward outlook signals
 7. **Market** — futures/price datasets if present
 8. **Source: CarbonInsights**
+
+---
+
+## Morning desk note
+
+**Triggers:** "morning note", "what moved overnight", "desk alerts", "open the desk"
+
+Use MCP prompt: `morning-desk-note`
+
+```
+1. desk_alert_scan({ threshold_pct: 10 })
+2. multi_table_desk_briefing({})
+3. fundamentals_price_read({})
+4. Optional: get_chart_series for price + top emission series
+5. Follow reference/templates/daily-desk-brief.md
+```
+
+---
+
+## Fundamentals vs EUA price
+
+**Triggers:** "fundamentals vs price", "is EUA priced right", "divergence", "price vs emissions"
+
+```
+1. fundamentals_price_read({})
+2. Lead with divergence flag (aligned / divergent / mixed)
+3. Chart: emissions signal + EUA Close from get_chart_series
+```
+
+---
+
+## Fuel switch monitor
+
+**Triggers:** "gas vs coal", "fuel switch", "merit order", "power stack"
+
+```
+1. analyze_fuel_switch({})
+2. Present gas_change_pct vs coal_change_pct
+3. EUA intensity implication
+```
+
+---
+
+## Year-over-year
+
+**Triggers:** "YoY", "vs last year", "year over year"
+
+```
+1. compare_yoy({ table, window_days: 7 })
+2. Highlight largest YoY % changes
+3. EUA bias from emission direction
+```

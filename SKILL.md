@@ -69,6 +69,20 @@ Do **not** invent EUA prices unless they appear in the dataset (e.g. `ckz_future
 User question
 ├── Full desk / EUA overview / all tables / market read
 │   └── multi_table_desk_briefing({})          ⭐
+├── Morning note / what moved / alerts
+│   └── desk_alert_scan → multi_table_desk_briefing → fundamentals_price_read
+├── Fundamentals vs EUA price / divergence
+│   └── fundamentals_price_read({})
+├── EUA futures / price / open interest
+│   └── analyze_eua_market
+├── Gas vs coal / fuel switch / merit order
+│   └── analyze_fuel_switch
+├── Aviation only (not broad industry)
+│   └── analyze_aviation
+├── Year-over-year / vs last year
+│   └── compare_yoy
+├── Charts with exact data points (Canvas / dashboard)
+│   └── get_chart_series
 ├── Vague topic ("power emissions", "maritime")
 │   └── suggest_dataset({ topic: "..." })
 ├── Single dataset deep-dive
@@ -155,6 +169,11 @@ The server exposes pre-built prompt templates — use when the client supports M
 | `maritime-ets-analysis` | Shipping voyage costs |
 | `week-over-week` | Last 7d vs prior 7d |
 | `country-ranking` | Top emitters by country |
+| `morning-desk-note` | Morning EUA desk (alerts + desk + fundamentals vs price) |
+| `eua-market-analysis` | EUA futures / price momentum |
+| `fuel-switch-monitor` | Gas vs coal fuel switch |
+| `fundamentals-vs-price` | Emissions fundamentals vs EUA price divergence |
+| `aviation-analysis` | EU aviation emissions |
 | `analyze-data` | General table analysis |
 | `write-report` | Markdown report |
 
@@ -181,19 +200,28 @@ Never paste API keys into chat. OAuth users: server resolves key after login.
 
 ## Known datasets (hints only — access via `list_tables`)
 
+See **[reference/datasets.md](reference/datasets.md)** for the full catalog.
+
 | Table | Domain | Preferred tool | group_by |
 |-------|--------|----------------|----------|
 | `cl_pow_daily_emissions_eu_api` | power | `analyze_power_emissions` | `country_code` |
+| `cl_power_generation_api` | power | `analyze_fuel_switch` | `country_code` |
+| `cl_ind_aviation_emissions` | industry | `analyze_aviation` | — |
 | `cl_ind_daily_emissions_eu_api` | industry | `analyze_industry_emissions` | — |
 | `europePowerForecast` | forecast | `analyze_forecast` | — |
-| `cl_maritime_trip_cost_sample` | maritime | `analyze_maritime` | `departure_port_code` |
+| `cl_maritime_trip_cost` | maritime | `analyze_maritime` | `departure_port_code` |
 | `cl_daily_emissions_api` | emissions | `analyze_table` | — |
-| `ckz_futures_view` | market | `analyze_table` | — |
+| `ckz_futures_view` | market | `analyze_eua_market` | — |
+| `COT` | market | `analyze_table` | — |
 
 Tables are **per API key** — always confirm with `list_tables`.
 
 ## Additional reference
 
+- [reference/getting-started.md](reference/getting-started.md) — Client onboarding (5 min)
+- [reference/datasets.md](reference/datasets.md) — Full table catalog
+- [reference/domains/](reference/domains/) — Power, industry, maritime, market playbooks
+- [reference/templates/daily-desk-brief.md](reference/templates/daily-desk-brief.md) — Morning desk template
 - [reference/persona-and-rules.md](reference/persona-and-rules.md) — Full persona, authority, recency, presentation rules
 - [reference/tools.md](reference/tools.md) — Every tool with params and when-to-use
 - [reference/workflows.md](reference/workflows.md) — Step-by-step workflows and error handling
