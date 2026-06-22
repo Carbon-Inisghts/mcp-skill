@@ -4,14 +4,16 @@ Step-by-step playbooks for common LLM tasks.
 
 ---
 
-## Session bootstrap
+## Session bootstrap (mandatory)
 
 ```
-1. verify_api_token()           → confirm auth + see accessible tables
-2. get_analysis_rules()         → load full desk playbook (optional if skill loaded)
-3. list_tables()                → discover datasets for this API key
-4. [Answer user question]       → follow tool selection below
+1. get_analysis_rules()         → load desk policy + skill repo URLs (step 1)
+2. list_tables()                → discover datasets for THIS API key (step 2)
+   (optional) read carboninsights://docs/skill via MCP resources
+3. [Answer user question]       → analysis tools only — never skip to rate data quality
 ```
+
+**Forbidden before init:** scoring data (7.5/10), "strengths/weaknesses" product reviews, critiquing API freshness/windowing from memory.
 
 If `verify_api_token` fails → guide user to [setup.md](setup.md). Never ask user to paste API key in chat when OAuth is available.
 

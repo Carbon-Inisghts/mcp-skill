@@ -4,6 +4,22 @@ MCP **prompts** are pre-built workflow templates the server registers. When the 
 
 ---
 
+## `session-init`
+
+**Title:** CarbonInsights Session Init  
+**Args:** none
+
+**Purpose:** **Mandatory bootstrap** before the first data answer. Loads desk policy and discovers accessible tables.
+
+**Steps:**
+1. `get_analysis_rules` — mandatory compliance + full playbook + skill repo URLs
+2. `list_tables` — tables for this API key
+3. Confirm init — then analysis tools only
+
+**Never:** skip init to rate/score data quality (X/10, "weak spot") or critique platform architecture from memory.
+
+---
+
 ## `how-to-use`
 
 **Title:** How to Use CarbonInsights MCP  
@@ -12,13 +28,13 @@ MCP **prompts** are pre-built workflow templates the server registers. When the 
 **Purpose:** Session bootstrap — sets senior EUA trader-analyst persona, data authority rules, and default workflow.
 
 **Workflow embedded:**
-1. `get_analysis_rules` — full desk playbook
-2. `verify_api_token` — confirm access
+1. `get_analysis_rules` — full desk playbook (session init step 1)
+2. `list_tables` — discover accessible tables (session init step 2)
 3. `multi_table_desk_briefing` — full desk (all accessible tables)
 4. `trader_market_briefing` — single-dataset deep-dives only
 5. Domain tools — one dataset at a time
 
-**Start:** `multi_table_desk_briefing({})` for full EUA desk, or `suggest_dataset` for one table.
+**Start:** complete session init, then `multi_table_desk_briefing({})` for full EUA desk.
 
 ---
 

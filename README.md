@@ -65,7 +65,7 @@ Paste `SKILL.md` or `reference/persona-and-rules.md` into system instructions wh
 - **Repo:** [mcp_server](https://github.com/CarbonInsights/mcp_server)
 - **Hosted example:** `https://mcp-server-cq2t.onrender.com/mcp`
 - **Tools:** 25 read-only analysis and data tools
-- **Prompts:** 19 workflow templates
+- **Prompts:** 20 workflow templates
 - **Resources:** 5 markdown knowledge URIs
 
 ## License

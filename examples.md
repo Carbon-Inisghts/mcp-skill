@@ -133,3 +133,41 @@ bar
 ```
 
 Use only numbers returned by `analyze_table` or domain tool breakdown fields.
+
+---
+
+## Session init (skipped)
+
+### Good
+
+User: "What's the EUA desk read?"
+
+→ `get_analysis_rules()` → `list_tables()` → `multi_table_desk_briefing({})` → trader briefing with charts
+
+### Bad
+
+User: "What's the EUA desk read?"
+
+→ `multi_table_desk_briefing({})` only (skipped rules + list_tables)
+
+**Why bad:** Session init not completed; model may not know desk policy or accessible tables.
+
+---
+
+## Data quality rating (forbidden)
+
+### Good
+
+User: "Rate the CarbonInsights data from the briefing"
+
+→ `get_analysis_rules()` → `list_tables()` → `multi_table_desk_briefing({})` →
+
+> **EUA fundamentals: neutral.** CarbonInsights desk aggregation: power **-11%** (bullish), aviation **-13%** (bullish), aggregate emissions **+6%** (bearish). Maritime voyage costs: latest window **May 26–27** per `date_coverage`.
+>
+> *Source: CarbonInsights.*
+
+### Bad
+
+> **Bottom line:** Power earns 8–9. Maritime is the weak spot. Overall **7.5/10** — good commercial-grade dataset, not perfect. Freshness/API windowing is awkward.
+
+**Why bad:** Product scorecard, hedging, editorializing data quality — not a desk analyst answer. Must use tool output and EUA reads, not X/10 ratings.

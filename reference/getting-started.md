@@ -29,7 +29,7 @@
 
 ### 3. Verify access
 ```
-verify_api_token()
+get_analysis_rules()
 list_tables()
 ```
 
@@ -47,7 +47,7 @@ fundamentals_price_read({})
 ## What you get
 
 - **25 MCP tools** — analysis, desk aggregation, market, fuel switch, alerts, chart series
-- **19 MCP prompts** — morning desk, EUA market, fuel switch, aviation, full desk
+- **20 MCP prompts** — session init, morning desk, EUA market, fuel switch, aviation, full desk
 - **Senior EUA trader persona** — bullish/bearish/neutral reads with charts
 
 ## Next steps
