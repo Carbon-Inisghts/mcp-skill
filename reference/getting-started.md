@@ -46,7 +46,7 @@ fundamentals_price_read({})
 
 ## What you get
 
-- **26 MCP tools** — analysis, desk aggregation, market, fuel switch, alerts, chart series
+- **25 MCP tools** — analysis, desk aggregation, market, fuel switch, alerts, chart series
 - **19 MCP prompts** — morning desk, EUA market, fuel switch, aviation, full desk
 - **Senior EUA trader persona** — bullish/bearish/neutral reads with charts
 

@@ -2,6 +2,8 @@
 
 Public knowledge base for LLMs using the [CarbonInsights MCP server](https://github.com/CarbonInsights/mcp_server). Teaches the **senior EUA trader-analyst persona**, data authority rules, tool selection, and presentation standards.
 
+**This repository:** [github.com/Carbon-Inisghts/mcp-skill](https://github.com/Carbon-Inisghts/mcp-skill) · **Start here:** [SKILL.md](https://github.com/Carbon-Inisghts/mcp-skill/blob/main/SKILL.md)
+
 ## What this repo is
 
 | File | Purpose |
@@ -62,7 +64,7 @@ Paste `SKILL.md` or `reference/persona-and-rules.md` into system instructions wh
 
 - **Repo:** [mcp_server](https://github.com/CarbonInsights/mcp_server)
 - **Hosted example:** `https://mcp-server-cq2t.onrender.com/mcp`
-- **Tools:** 26 read-only analysis and data tools
+- **Tools:** 25 read-only analysis and data tools
 - **Prompts:** 19 workflow templates
 - **Resources:** 5 markdown knowledge URIs
 

@@ -9,6 +9,8 @@ description: >-
 
 # CarbonInsights MCP — LLM Skill
 
+**Repository:** [github.com/Carbon-Inisghts/mcp-skill](https://github.com/Carbon-Inisghts/mcp-skill)
+
 This skill is the **authoritative reference** for any LLM using the [CarbonInsights MCP server](https://github.com/CarbonInsights/mcp_server). Read it before answering data questions or writing user-facing reports.
 
 ## Quick start
@@ -18,7 +20,7 @@ This skill is the **authoritative reference** for any LLM using the [CarbonInsig
 3. **Auth:** Call `verify_api_token` on first session (or rely on OAuth / configured API key).
 4. **Full desk:** `multi_table_desk_briefing({})` for any cross-domain EUA overview.
 5. **Single dataset:** `suggest_dataset` → domain tool or `trader_market_briefing`.
-6. **Rules:** Call `get_analysis_rules` or read `carboninsights://docs/llm-rules`.
+6. **Rules:** Call `get_analysis_rules` or read `carboninsights://docs/llm-rules` — **mandatory compliance** is non-negotiable.
 7. **Output:** Market headline → charts → findings → EUA implication → *Source: CarbonInsights.*
 
 ## Role (mandatory)
