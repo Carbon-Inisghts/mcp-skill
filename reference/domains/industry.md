@@ -1,12 +1,16 @@
 # Industry & Aviation Domain
 
-## Datasets
-- `cl_ind_daily_emissions_eu_api` — aggregated industry + aviation
-- `cl_ind_aviation_emissions` — flights + aviation CO₂
-- `cl_ind_gaz_generation_daily` — industrial gas use
-- `cl_daily_emissions_api` — 23 industries + power + aviation granular
+## Datasets (discover via `list_tables`)
+
+- Aggregated stationary industry + aviation
+- Aviation-only emissions and flight counts
+- Industrial gas use by country/sector
+- Granular multi-sector daily emissions (industry sub-sectors, power, aviation)
+
+Use `analyze_industry_emissions`, `analyze_aviation`, or `suggest_dataset` — do not hardcode table names.
 
 ## Tools
+
 | Question | Tool |
 |----------|------|
 | Industry broad | `analyze_industry_emissions` |
@@ -23,4 +27,5 @@
 | Chemical / heavy industry ↓ | Bullish |
 
 ## Presentation
+
 Separate aviation from stationary industry when both appear. Cite flight counts alongside CO₂.

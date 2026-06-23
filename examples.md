@@ -65,7 +65,7 @@ User: "Give me a full EUA desk report"
 
 User: "Give me a full EUA desk report"
 
-→ `trader_market_briefing({ table: "cl_pow_daily_emissions_eu_api" })` only
+→ `trader_market_briefing({ table: "<one table from list_tables>" })` only
 
 **Why bad:** Full-desk questions require multi-table aggregation.
 

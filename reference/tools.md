@@ -40,7 +40,7 @@ Column names and types for one table.
 | Note | `analyze_table` auto-detects columns — prefer it for most questions |
 
 ```json
-{ "table": "cl_pow_daily_emissions_eu_api" }
+{ "table": "<name from list_tables>" }
 ```
 
 ---
@@ -85,7 +85,7 @@ Returns the full CarbonInsights LLM playbook (persona + charts + data rules).
 
 ```json
 {
-  "table": "cl_pow_daily_emissions_eu_api",
+  "table": "<name from list_tables>",
   "from": "2026-06-01",
   "to": "2026-06-17",
   "group_by": "country_code",
@@ -112,7 +112,7 @@ Full analysis + polished briefing template. Best for user-facing reports.
 | When | Reports, briefings, stakeholder updates |
 
 ```json
-{ "table": "cl_pow_daily_emissions_eu_api" }
+{ "table": "<name from list_tables>" }
 ```
 
 ---
@@ -127,7 +127,7 @@ Single-dataset EUA trader briefing with chart guidance.
 | Default | Latest dates — omit `from`/`to` unless user asks for history |
 
 ```json
-{ "table": "cl_pow_daily_emissions_eu_api" }
+{ "table": "<name from list_tables>" }
 ```
 
 ---
@@ -151,7 +151,7 @@ Single-dataset EUA trader briefing with chart guidance.
 
 ```json
 {
-  "tables": ["cl_pow_daily_emissions_eu_api", "cl_ind_daily_emissions_eu_api"],
+  "tables": ["<optional subset from list_tables>"],
   "max_tables": 12
 }
 ```
@@ -181,7 +181,7 @@ Compare metrics between two custom date ranges.
 
 ```json
 {
-  "table": "cl_pow_daily_emissions_eu_api",
+  "table": "<name from list_tables>",
   "period_a_from": "2026-06-01",
   "period_a_to": "2026-06-07",
   "period_b_from": "2026-06-08",
@@ -198,7 +198,7 @@ Auto-splits last 14 days into two 7-day periods.
 | When | "Week over week", recent change |
 
 ```json
-{ "table": "cl_pow_daily_emissions_eu_api" }
+{ "table": "<name from list_tables>" }
 ```
 
 ---
@@ -211,7 +211,7 @@ Country/segment ranking via `analyze_table` with `group_by`.
 
 ```json
 {
-  "table": "cl_pow_daily_emissions_eu_api",
+  "table": "<name from list_tables>",
   "metric": "total_emissions",
   "group_by": "country_code"
 }
@@ -227,7 +227,7 @@ Most recent rows (sorted by date desc).
 | Not for | Deep analysis — use `analyze_table` or `executive_briefing` |
 
 ```json
-{ "table": "cl_pow_daily_emissions_eu_api", "rows": 5 }
+{ "table": "<name from list_tables>", "rows": 5 }
 ```
 
 ---
@@ -242,7 +242,7 @@ Raw rows — use `analyze_table` instead for analysis questions.
 
 ```json
 {
-  "table": "cl_pow_daily_emissions_eu_api",
+  "table": "<name from list_tables>",
   "limit": 100,
   "sort": "date",
   "order": "desc",
@@ -264,7 +264,7 @@ Raw rows — use `analyze_table` instead for analysis questions.
 
 ### `analyze_eua_market`
 
-EUA futures briefing — price momentum, open interest, market read. Auto-resolves `ckz_futures_view`.
+EUA futures briefing — price momentum, open interest, market read. Auto-resolves market dataset from `list_tables`.
 
 ```json
 {}
@@ -274,7 +274,7 @@ EUA futures briefing — price momentum, open interest, market read. Auto-resolv
 
 ### `analyze_aviation`
 
-Aviation-only CO₂ and flight trends. Auto-resolves `cl_ind_aviation_emissions`.
+Aviation-only CO₂ and flight trends. Auto-resolves aviation dataset from `list_tables`.
 
 ```json
 {}
@@ -298,7 +298,7 @@ Latest N-day window vs same calendar window one year prior.
 
 ```json
 {
-  "table": "cl_pow_daily_emissions_eu_api",
+  "table": "<name from list_tables>",
   "window_days": 7
 }
 ```
@@ -331,8 +331,8 @@ Structured time-series JSON for charts — exact CarbonInsights points.
 
 ```json
 {
-  "table": "ckz_futures_view",
-  "metric": "Close",
+  "table": "<name from list_tables>",
+  "metric": "<column from get_table_structure>",
   "max_points": 60
 }
 ```

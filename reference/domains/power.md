@@ -1,17 +1,22 @@
 # Power Domain — Trader Interpretation
 
-## Datasets
-- `cl_pow_daily_emissions_eu_api` — daily CO₂ by country
-- `cl_power_generation_api` — 15-min fuel mix (gas, coal, nuclear, solar, wind)
-- `cl_power_load_api` — demand / load
-- `cl_power_generation_load_hourly` — hourly stack
+## Datasets (discover via `list_tables`)
+
+- Daily power CO₂ by country
+- High-frequency generation / fuel mix (gas, coal, nuclear, solar, wind)
+- Electricity load / demand
+- Hourly generation + load stack
+- Power and CO₂ forecasts
+
+Use `suggest_dataset({ topic: "power emissions" })` or `analyze_power_emissions({})` to auto-select from accessible tables.
 
 ## Tools
+
 | Question | Tool |
 |----------|------|
 | Power emissions trend | `analyze_power_emissions` |
 | Gas vs coal switch | `analyze_fuel_switch` |
-| Country ranking | `rank_countries` on power table |
+| Country ranking | `rank_countries` (power dataset from `list_tables`) |
 | Week-over-week | `compare_recent_weeks` |
 | Chart series | `get_chart_series` |
 
@@ -26,4 +31,5 @@
 | Solar/wind ↑, fossil ↓ | Bullish |
 
 ## Presentation
+
 Lead with country breakdown (DE, PL, FR, IT, ES). Chart: emissions line + fuel-mix grouped bar.

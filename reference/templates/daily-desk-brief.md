@@ -7,7 +7,7 @@ Use MCP prompt: `morning-desk-note`
 1. `desk_alert_scan({ threshold_pct: 10 })`
 2. `multi_table_desk_briefing({})`
 3. `fundamentals_price_read({})`
-4. Optional: `get_chart_series({ table: "ckz_futures_view", metric: "Close" })`
+4. Optional: `get_chart_series` — use `table` and `metric` from `list_tables` or `analyze_eua_market` output (e.g. EUA Close)
 
 ## Output structure
 
