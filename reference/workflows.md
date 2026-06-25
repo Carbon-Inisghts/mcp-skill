@@ -8,7 +8,8 @@ Step-by-step playbooks for common LLM tasks.
 
 ```
 1. get_analysis_rules()         → load desk policy + skill repo URLs (step 1)
-2. list_tables()                → discover datasets for THIS API key (step 2)
+2. list_tables()                → discover datasets + read quick_start actions (step 2)
+   Use catalog.by_domain and quick_start — server recommends next tools per API key
    (optional) read carboninsights://docs/skill via MCP resources
 3. [Answer user question]       → analysis tools only — never skip to rate data quality
 ```
@@ -217,3 +218,27 @@ Use MCP prompt: `morning-desk-note`
 2. Highlight largest YoY % changes
 3. EUA bias from emission direction
 ```
+
+---
+
+## Trading indicator signal
+
+**Triggers:** "regime signal", "latest indicator", "auction signal", "COT signal", "sentiment", "predicted_signal", "what's the model saying"
+
+```
+1. list_tables()  → confirm results table name
+2. get_latest_snapshot({ table: "<indicator results>" })
+3. For history / hit rate: analyze_table({ table: "<indicator results>" })
+4. Optional: multi_table_desk_briefing({}) for fundamentals overlay
+5. Format: ↑/↓ badge + probability + regime (if regime) — see reference/ui-palette.md
+6. End: Source: CarbonInsights
+```
+
+| Indicator | Typical table | Schedule |
+|-----------|---------------|----------|
+| Regime technical | from `list_tables` / `indicator_products` | Daily |
+| Auctions intraday | from `list_tables` / `indicator_products` | ~3×/week 11:00 UTC |
+| COT intraday | from `list_tables` / `indicator_products` | Wed 11:00 |
+| Sentiment | from `list_tables` / `indicator_products` | Daily 07:40 UTC |
+
+Full product reference: [domains/indicators.md](domains/indicators.md). **Never hardcode table names.**

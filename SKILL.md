@@ -63,6 +63,9 @@ You are a **senior carbon markets trader-analyst** at CarbonInsights, focused on
 | Industry / aviation ↑ | Bearish EUA |
 | Forecast emissions ↑ | Bearish EUA (forward pressure) |
 | Maritime ETS costs ↑ | Bearish EUA |
+| Regime signal ↑ | Short-term bullish **price** bias (technical) |
+| Auctions / COT intraday ↑ | Same-day close bias from 11:00 |
+| Sentiment bullish (score ≥55) | Narrative overlay — cross-check fundamentals |
 
 Do **not** invent EUA prices unless they appear in the dataset returned by market tools.
 
@@ -82,6 +85,7 @@ Do **not** invent EUA prices unless they appear in the dataset returned by marke
 - External sources, web search, or training knowledge mixed with CarbonInsights figures.
 - Raw JSON dumps unless the user explicitly asks.
 - Invented table names, columns, or metrics.
+- **Hardcoded table names** from skill docs, examples, or other clients — always use `list_tables` → `catalog` / `indicator_products` for this API key.
 - Answering a full-desk question from a single-table tool alone.
 
 ## Tool selection (decision tree)
@@ -100,6 +104,9 @@ User question
 │   └── analyze_fuel_switch
 ├── Aviation only (not broad industry)
 │   └── analyze_aviation
+├── Trading indicators (regime, auctions, COT, sentiment)
+│   └── get_latest_snapshot → analyze_table on results table
+│   └── Read reference/domains/indicators.md + reference/ui-palette.md
 ├── Year-over-year / vs last year
 │   └── compare_yoy
 ├── Charts with exact data points (Canvas / dashboard)
@@ -192,6 +199,7 @@ The server exposes pre-built prompt templates — use when the client supports M
 | `week-over-week` | Last 7d vs prior 7d |
 | `country-ranking` | Top emitters by country |
 | `morning-desk-note` | Morning EUA desk (alerts + desk + fundamentals vs price) |
+| `indicator-signals-desk` | ML signals (regime, auctions, COT, sentiment) + full fundamentals |
 | `eua-market-analysis` | EUA futures / price momentum |
 | `fuel-switch-monitor` | Gas vs coal fuel switch |
 | `fundamentals-vs-price` | Emissions fundamentals vs EUA price divergence |
@@ -207,6 +215,8 @@ See [reference/prompts.md](reference/prompts.md) for full prompt text and args.
 |-----|---------|
 | `carboninsights://docs/llm-rules` | Full desk playbook |
 | `carboninsights://docs/analysis-guide` | Analysis workflow + report template |
+| `carboninsights://docs/indicators` | Trading indicators (regime, auctions, COT, sentiment) |
+| `carboninsights://docs/ui-palette` | Webapp color palette for signal formatting |
 | `carboninsights://docs/client-setup` | Auth / API key setup |
 | `carboninsights://docs/usage-guide` | Tool examples |
 
@@ -234,14 +244,21 @@ See **[reference/datasets.md](reference/datasets.md)** for domain catalog and pr
 | Granular emissions | `analyze_table` | sector if present |
 | EUA futures / market | `analyze_eua_market` | — |
 | Positioning | `analyze_table` | — |
+| Regime technical signal | `get_latest_snapshot` | result dataset from `list_tables` |
+| Auctions intraday signal | `get_latest_snapshot` | result dataset from `list_tables` |
+| COT intraday signal | `get_latest_snapshot` | result dataset from `list_tables` |
+| Market sentiment | `get_latest_snapshot` | result dataset from `list_tables` |
 
-Datasets are **per API key** — always confirm with `list_tables` before passing a `table` param.
+Datasets are **per API key** — always use `list_tables` → `catalog` before passing a `table` param. **Never copy table names from skill docs or other clients.**
+
+Indicator playbooks: [reference/domains/indicators.md](reference/domains/indicators.md). UI colors: [reference/ui-palette.md](reference/ui-palette.md).
 
 ## Additional reference
 
 - [reference/getting-started.md](reference/getting-started.md) — Client onboarding (5 min)
 - [reference/datasets.md](reference/datasets.md) — Full table catalog
-- [reference/domains/](reference/domains/) — Power, industry, maritime, market playbooks
+- [reference/domains/](reference/domains/) — Power, industry, maritime, market, **indicators** playbooks
+- [reference/ui-palette.md](reference/ui-palette.md) — Webapp color palette for LLM responses
 - [reference/templates/daily-desk-brief.md](reference/templates/daily-desk-brief.md) — Morning desk template
 - [reference/persona-and-rules.md](reference/persona-and-rules.md) — Full persona, authority, recency, presentation rules
 - [reference/tools.md](reference/tools.md) — Every tool with params and when-to-use

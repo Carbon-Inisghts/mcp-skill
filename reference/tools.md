@@ -23,12 +23,16 @@ Validate API token and list accessible tables.
 
 Discover tables and column schemas for the authenticated user.
 
+**Also returns:** `catalog` (domain + preferred_tool per table), `by_domain`, `indicator_products`, `quick_start` (recommended next tool calls).
+
 | When | Before any data or analysis question |
-| Next | `analyze_table` (preferred) or `get_table_structure` |
+| Next | Follow `quick_start[0]` or `multi_table_desk_briefing` for full desk |
 
 ```json
 {}
 ```
+
+Read the **By domain** and **Quick start** sections in the tool summary — do not guess tools from memory.
 
 ---
 
@@ -223,8 +227,12 @@ Country/segment ranking via `analyze_table` with `group_by`.
 
 Most recent rows (sorted by date desc).
 
-| When | "Latest value", "most recent data" |
+| When | "Latest value", "most recent data", **latest indicator signal** |
 | Not for | Deep analysis — use `analyze_table` or `executive_briefing` |
+
+**Indicator results** — discover via `list_tables` → `indicator_products` (never hardcode names).
+
+Present `predicted_signal` as ↑ Up (1) / ↓ Down (0) with [ui-palette.md](ui-palette.md) colors.
 
 ```json
 { "table": "<name from list_tables>", "rows": 5 }
@@ -365,3 +373,7 @@ Structured time-series JSON for charts — exact CarbonInsights points.
 | Two custom date ranges | `compare_periods` |
 | Raw export only | `get_table_data` |
 | Session rules | `get_analysis_rules` |
+| **Regime / auction / COT / sentiment signal** | **`get_latest_snapshot`** on indicator results |
+| Indicator history / accuracy | `analyze_table` on indicator results |
+
+See [domains/indicators.md](domains/indicators.md) and [ui-palette.md](ui-palette.md).

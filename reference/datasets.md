@@ -44,6 +44,19 @@
 
 **Trader read:** Price momentum + fundamentals divergence = key desk signal. Use `fundamentals_price_read`.
 
+## Trading indicators (ML signals)
+
+> Use `list_tables` → `indicator_products` for **this** API key. Never hardcode result table names. Playbook: [domains/indicators.md](domains/indicators.md).
+
+| Indicator | Schedule | Tool (latest) | Tool (history) |
+|-----------|----------|---------------|----------------|
+| Regime technical | Daily | `get_latest_snapshot` | `analyze_table` |
+| Auctions intraday | ~3×/week 11:00 UTC | `get_latest_snapshot` | `analyze_table` |
+| COT intraday | Wed 11:00 | `get_latest_snapshot` | `analyze_table` |
+| Sentiment | Daily 07:40 UTC | `get_latest_snapshot` | `analyze_table` |
+
+Format with [ui-palette.md](../ui-palette.md) — green ↑ / red ↓.
+
 ## Forecast evaluation
 
 | Dataset type | Description | Preferred tool | Typical group_by |
