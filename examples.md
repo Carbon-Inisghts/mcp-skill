@@ -201,3 +201,25 @@ User: "What's the latest regime indicator saying?"
 > The regime model is probably around 60% accurate based on industry standards. Signal might be up but I can't verify.
 
 **Why bad:** Training-memory accuracy, disclaimer, no tool figures.
+
+---
+
+## Signal scoreboard (multi-table desk)
+
+### Good
+
+Uses `eua_bias` from `multi_table_desk_briefing` desk_signals without relabeling:
+
+> **Power daily emissions −3.7%** → **Bullish** (lower EUA demand)  
+> **Solar generation +19.1%** → **Bullish** (displaces fossil burn)  
+> **Fossil gas generation +21.2%** → **Bearish**  
+> **Power load +8.6%** → **Bearish**  
+> **Aviation −12.9%** → **Bullish**
+
+### Bad
+
+> Power emissions **down 3.7%** — **Neutral**  
+> Solar **up 19%** — **Bearish**  
+> Aviation **down 13%** — **Bearish**
+
+**Why bad:** Treated every “up” as bearish. Emissions down must be **bullish**; renewables up must be **bullish**.
