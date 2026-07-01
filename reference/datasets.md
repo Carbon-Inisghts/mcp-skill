@@ -23,7 +23,7 @@
 | Industrial gas use | Gas generation by country/sector | `analyze_industry_emissions` | — |
 | Granular daily emissions | Multi-sector breakdown (industry sub-sectors, power, aviation) | `analyze_table` | sector column if present |
 
-**Trader read:** Aviation↓ → bullish EUA. Industry stable → neutral. Aggregate daily emissions↑ → bearish macro signal.
+**Trader read:** Aviation↓ → bearish EUA price. Industry stable → neutral. Aggregate daily emissions↑ → bullish macro signal.
 
 ## Maritime
 
@@ -33,7 +33,7 @@
 | Sample trip costs | Sample maritime trips | `analyze_maritime` | port / route column |
 | Daily maritime distances | Distances + emissions by vessel type | `analyze_maritime` | — |
 
-**Trader read:** Rising voyage emissions / EU ETS costs → bearish EUA (higher compliance demand).
+**Trader read:** Rising voyage emissions / EU ETS costs → bullish EUA price (higher compliance demand).
 
 ## Market & positioning
 

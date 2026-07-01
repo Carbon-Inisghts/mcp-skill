@@ -20,15 +20,15 @@ Use `suggest_dataset({ topic: "power emissions" })` or `analyze_power_emissions(
 | Week-over-week | `compare_recent_weeks` |
 | Chart series | `get_chart_series` |
 
-## EUA linkage
+## EUA linkage (price lens)
 
-| Signal | EUA read |
-|--------|----------|
-| Power emissions ↑ | Bearish EUA |
-| Power emissions ↓ | Bullish EUA |
-| Load ↑ + gas generation ↑ | Near-term bearish |
-| Coal ↑, gas ↓ | Watch intensity — often bearish if coal displaces clean stack |
-| Solar/wind ↑, fossil ↓ | Bullish |
+| Signal | EUA price read |
+|--------|----------------|
+| Power emissions ↑ | **Bullish** EUA |
+| Power emissions ↓ | **Bearish** EUA |
+| Load ↑ + gas generation ↑ | Near-term **bullish** |
+| Coal ↑, gas ↓ | Watch intensity — often **bullish** if coal displaces clean stack |
+| Solar/wind ↑, fossil ↓ | **Bearish** (displaces fossil burn) |
 
 ## Presentation
 

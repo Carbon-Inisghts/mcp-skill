@@ -41,7 +41,7 @@ Good vs bad LLM responses when using CarbonInsights MCP.
 
 > CarbonInsights shows EU power emissions averaged **1.09 Mt CO₂/day** in the latest window (Jun 1–17), trending **+17%**. Gas emissions rose **+42%**, driving the increase. Germany leads at **33%** of the total.
 >
-> **EUA read:** Bearish — rising power-sector CO₂ increases allowance demand.
+> **EUA read:** Bullish — rising power-sector CO₂ increases allowance demand → price support.
 >
 > *Source: CarbonInsights.*
 
@@ -162,7 +162,7 @@ User: "Rate the CarbonInsights data from the briefing"
 
 → `get_analysis_rules()` → `list_tables()` → `multi_table_desk_briefing({})` →
 
-> **EUA fundamentals: neutral.** CarbonInsights desk aggregation: power **-11%** (bullish), aviation **-13%** (bullish), aggregate emissions **+6%** (bearish). Maritime voyage costs: latest window **May 26–27** per `date_coverage`.
+> **EUA fundamentals: neutral.** CarbonInsights desk aggregation: power **-11%** (bearish), aviation **-13%** (bearish), aggregate emissions **+6%** (bullish). Maritime voyage costs: latest window **May 26–27** per `date_coverage`.
 >
 > *Source: CarbonInsights.*
 
@@ -210,16 +210,17 @@ User: "What's the latest regime indicator saying?"
 
 Uses `eua_bias` from `multi_table_desk_briefing` desk_signals without relabeling:
 
-> **Power daily emissions −3.7%** → **Bullish** (lower EUA demand)  
-> **Solar generation +19.1%** → **Bullish** (displaces fossil burn)  
-> **Fossil gas generation +21.2%** → **Bearish**  
-> **Power load +8.6%** → **Bearish**  
-> **Aviation −12.9%** → **Bullish**
+> **Power daily emissions −3.7%** (red Δ) → **Bearish** EUA (lower allowance demand → price pressure)  
+> **Solar generation +19.1%** (green Δ) → **Bearish** EUA (displaces fossil burn)  
+> **Fossil gas generation +21.2%** (green Δ) → **Bullish** EUA  
+> **Power load +8.6%** (green Δ) → **Bullish** EUA  
+> **Aviation −12.9%** (red Δ) → **Bearish** EUA
 
 ### Bad
 
-> Power emissions **down 3.7%** — **Neutral**  
-> Solar **up 19%** — **Bearish**  
-> Aviation **down 13%** — **Bearish**
+> Power emissions **down 3.7%** — **Bullish** or **Neutral**  
+> Solar **up 19%** — **Bullish**  
+> Fossil gas **up 21%** — **Bearish**  
+> Aviation **down 13%** — **Bullish**
 
-**Why bad:** Treated every “up” as bearish. Emissions down must be **bullish**; renewables up must be **bullish**.
+**Why bad:** Inverted price lens. Emissions down = **bearish** EUA price; renewables up = **bearish**; fossil gas up = **bullish**. Do not equate metric +/- color with EUA bias on every row.

@@ -1,102 +1,88 @@
 # EUA Fundamental Reasoning — External Research Validation
 
-CarbonInsights desk scoreboard rules (emissions demand → EUA bias) align with EU ETS market structure and peer-reviewed / industry literature. Use this when explaining **why** `eua_bias` is labelled bullish or bearish.
+CarbonInsights desk rules map **allowance demand** to **EUA price** bias (bullish = price support, bearish = price pressure). Use this when explaining **why** `eua_bias` is labelled bullish or bearish.
 
-> Desk labels describe **allowance demand fundamentals**, not guaranteed EUA **price** direction. Price can diverge short-term (positioning, policy, liquidity).
+> **Bullish/bearish = EUA price** for the long desk. Price can diverge from the latest emissions print short-term — use `fundamentals_price_read`.
 
 ---
 
 ## Core law (validated)
 
-**Higher verified emissions / compliance demand → bearish EUA fundamentals. Lower emissions / demand → bullish.**
+**Higher verified emissions / compliance demand → bullish EUA price. Lower emissions / demand → bearish EUA price.**
 
 | Source | Finding |
 |--------|---------|
-| [European Commission — About the EU ETS](https://climate.ec.europa.eu/eu-action/carbon-markets/about-eu-ets_en) | Cap-and-trade: declining cap + market price incentivises abatement; allowance scarcity drives compliance cost. |
-| [ABN AMRO Carbon Market Strategist (2026)](https://www.abnamro.com/research/en/our-research/carbon-market-strategist-supply-uncertainty-and-weaker-demand-reshape-carbon) | Weaker emissions **demand** outlook contributed to softer EUA prices; traders cut longs as demand expectations fell. |
-| [ETC/EIONET ETS Report 2025](https://www.eionet.europa.eu/etcs/etc-cm/products/etc-cm-report-2025-06/) | Verified emissions vs allowance supply balance drives market tightness; power-sector decarbonisation reduced emissions. |
+| [European Commission — About the EU ETS](https://climate.ec.europa.eu/eu-action/carbon-markets/about-eu-ets_en) | 2008 crisis: emissions fell more than expected → large allowance surplus → **weighed heavily on the carbon price**. |
+| [ABN AMRO Carbon Market Strategist (2026)](https://www.abnamro.com/research/en/our-research/carbon-market-strategist-supply-uncertainty-and-weaker-demand-reshape-carbon) | Weaker emissions **demand** outlook contributed to **softer EUA prices**. |
+| [KU Leuven — COVID demand shock & EU ETS](https://www.mech.kuleuven.be/en/tme/research/energy-systems-integration-modeling/pdf-publications/wp-esim2020-09) | Negative demand shock **decreases the price of emission allowances** under cap-and-trade. |
+| [EC — Market Stability Reserve](https://climate.ec.europa.eu/eu-action/carbon-markets/eu-emissions-trading-system-eu-ets/market-stability-reserve_en) | 2008 crisis → lower emissions than anticipated → **lower demand for allowances** → surplus → lower prices. |
 
-**Desk rule:** Power/industry/aviation/maritime **emissions ↓** → **Bullish** (even −2% / −3.7%). **Emissions ↑** → **Bearish**.
+**Desk rule:** Power/industry/aviation/maritime **emissions ↑** → **Bullish** EUA price. **Emissions ↓** → **Bearish** (even −2% / −3.7%).
 
 ---
 
-## Power load ↑ → bearish
+## Emissions down → price down (user FAQ)
+
+Yes — in fundamentals terms, **lower emissions mean lower allowance demand**, which tends to **pressure EUA price lower** (bearish). That is why emissions **−3.7%** is **bearish**, not bullish.
+
+**When price falls but emissions have not fallen:** use `fundamentals_price_read` — drivers may include MSR/auction supply, positioning, forward cap narrative, or sentiment while the latest emissions print is flat or still rising ([Gerlagh & Heijmans — MSR & COVID](https://link.springer.com/article/10.1007/s10640-020-00441-0)).
+
+---
+
+## Power load ↑ → bullish EUA price
 
 | Source | Finding |
 |--------|---------|
-| [Eslahi et al. — electricity demand & EUA (Ecological Economics, 2023)](https://ideas.repec.org/a/eee/ecolec/v214y2023ics0921800923002483.html) | Electricity demand among the most important predictors of EUA prices across EU ETS phases. |
+| [Eslahi et al. — electricity demand & EUA (Ecological Economics, 2023)](https://ideas.repec.org/a/eee/ecolec/v214y2023ics0921800923002483.html) | Electricity demand among the most important predictors of EUA prices. |
 | [Erasmus MSc thesis — demand drivers Phase IV](https://thesis.eur.nl/pub/69970/Master-Thesis-526197-.pdf) | Higher electricity demand → more fossil dispatch → upward pressure on carbon prices. |
 
-**Desk rule:** Load **+8.6%** → **Bearish** ✓
+**Desk rule:** Load **+8.6%** → **Bullish** ✓
 
 ---
 
-## Solar / renewables ↑ → bullish (not bearish)
+## Solar / renewables ↑ → bearish EUA price
 
 | Source | Finding |
 |--------|---------|
-| [ScienceDirect — EU ETS & renewables (2025)](https://www.sciencedirect.com/science/article/abs/pii/S014098832500475X) | EU ETS significantly increased renewable share and reduced fossil share in electricity mix. |
-| [Renewable Energy Institute column (2024)](https://www.renewable-ei.org/en/activities/column/REupdate/20241219.php) | Higher RE + nuclear output **reduces fossil generation**, lowering **demand for emission allowances** and EUA price pressure. |
-| [Eurelectric — What is an ETS?](https://www.eurelectric.org/in-detail/what-is-an-emission-trading-system/) | Merit order ranks renewables first; wind/solar displace fossil hours → lower power-sector emissions. |
+| [Renewable Energy Institute column (2024)](https://www.renewable-ei.org/en/activities/column/REupdate/20241219.php) | Higher RE output **reduces fossil generation**, lowering **demand for emission allowances** and **EUA price**. |
+| [Eurelectric — What is an ETS?](https://www.eurelectric.org/in-detail/what-is-an-emission-trading-system/) | Merit order ranks renewables first; wind/solar displace fossil hours. |
 
-**Desk rule:** Solar **+19%** → **Bullish** ✓ (displaces fossil burn). Labelling solar up as bearish is **wrong**.
+**Desk rule:** Solar **+19%** → **Bearish** EUA price ✓ (metric + is green; EUA column red).
 
 ---
 
-## Fossil gas / coal generation ↑ → bearish (with fuel-switch nuance)
+## Fossil gas / coal generation ↑ → bullish (with fuel-switch nuance)
 
 | Source | Finding |
 |--------|---------|
-| [Cambridge EPRG — fuel switching & merit order](https://www.jbs.cam.ac.uk/wp-content/uploads/2023/12/eprg-wp1107.pdf) | Carbon price + fuel prices determine coal vs gas merit-order switch; switching changes emissions and allowance demand. |
-| [KU Leuven — Fuel switching in EU ETS](https://www.mech.kuleuven.be/en/tme/research/energy_environment/pdf/WPEN2007-04) | Coal→gas switch **lowers** GHG emissions per MWh; sufficient EUA price triggers switching. |
-| [Montel — Carbon prices & merit order](https://montel.energy/resources/blog/how-carbon-prices-shape-power-markets) | Higher EUA costs push coal down merit order; gas vs coal breakeven drives dispatch. |
+| [Cambridge EPRG — fuel switching & merit order](https://www.jbs.cam.ac.uk/wp-content/uploads/2023/12/eprg-wp1107.pdf) | Dispatch changes emissions and allowance demand. |
+| [Montel — Carbon prices & merit order](https://montel.energy/resources/blog/how-carbon-prices-shape-power-markets) | Higher EUA costs push coal down merit order. |
 
-**Desk rule:** Fossil gas gen **+21%** (absolute rise) → **Bearish** ✓
+**Desk rule:** Fossil gas gen **+21%** (absolute rise) → **Bullish** ✓
 
-**Nuance:** Gas **replacing** coal can be **bullish** for EUA (net emissions down). Use `analyze_fuel_switch` — do not score gas and coal rows in isolation when the question is fuel switch.
+**Nuance:** Gas **replacing** coal can lower net emissions → use `analyze_fuel_switch`.
 
 ---
 
-## Aviation emissions ↓ → bullish
+## Aviation emissions ↓ → bearish EUA price
 
 | Source | Finding |
 |--------|---------|
-| [European Commission — Aviation allocation](https://climate.ec.europa.eu/eu-action/carbon-markets/eu-emissions-trading-system-eu-ets/free-allocation/allocation-aviation-sector_en) | Aviation covered by EU ETS; operators must surrender allowances for verified CO₂. |
-| [EASA — EU ETS aviation](https://www.easa.europa.eu/en/domains/environment/eaer/market-based-measures/eu-emissions-trading-system) | Higher aviation activity increases EUA purchases; carbon price incentivises abatement/SAF. |
-| [Transport & Environment ETS Report 2026](https://uploads.transportenvironment.org/production/files/TE-ETS-Report-2026_08.05.2026.pdf) | Aviation exceeds sector cap → net importer of general EUAs from stationary/maritime pool. |
+| [EASA — EU ETS aviation](https://www.easa.europa.eu/en/domains/environment/eaer/market-based-measures/eu-emissions-trading-system) | Higher aviation activity increases EUA purchases. |
 
-**Desk rule:** Aviation **−12.9%** → **Bullish** ✓
+**Desk rule:** Aviation **−12.9%** → **Bearish** ✓
 
 ---
 
-## Forward CO₂ forecast ↓ → bullish
+## Forward CO₂ forecast ↑ → bullish
 
-| Source | Finding |
-|--------|---------|
-| ABN AMRO / BNEF demand projections (2026 outlook) | Forward emissions demand trajectory is a primary driver of medium-term EUA price paths. |
-| EC ETS cap trajectory | Falling expected compliance needs align with tighter or looser market balance. |
-
-**Desk rule:** Forward forecast **−5.3%** → **Bullish** ✓
+**Desk rule:** Forward forecast **+5%** → **Bullish** | forecast **−5%** → **Bearish**
 
 ---
 
 ## COT / positioning — price signal, not emissions
 
-| Source | Finding |
-|--------|---------|
-| [Homaio — COT in EU ETS](https://www.homaio.com/post/what-is-the-commitment-of-traders-report-in-the-eu-ets) | Weekly positioning report; net long/short reflects market sentiment on EUA **price**. |
-| [Homaio — COT & EUA prices 2024](https://www.homaio.com/post/the-commitment-of-traders-report-and-eua-prices-in-2024) | Investment funds net short correlated with price declines; short covering associated with price rebounds. |
-
-**Desk rule:** COT short **−19%** (covering) → **Bullish** for **price/positioning** — separate block from emissions scoreboard.
-
----
-
-## Known limitations (document in desk answers)
-
-1. **Fundamentals ≠ price short-term** — policy (MSR, ETS review), liquidity, and positioning can move EUA against emissions trend ([ABN AMRO 2026](https://www.abnamro.com/research/en/our-research/carbon-market-strategist-supply-uncertainty-and-weaker-demand-reshape-carbon), [Homaio Antwerp summit note](https://www.homaio.com/post/eu-carbon-market-how-the-antwerp-summit-sparked-a-new-battle-for-europes-industrial-future)).
-2. **Fuel switch** — gas↑ coal↓ can lower net emissions; use `analyze_fuel_switch` and `fundamentals_price_read`.
-3. **Auction / OI / options rows** — market microstructure; neutral unless tied to clear demand narrative.
-4. **CarbonInsights figures** — always from MCP tool output for this user; external research validates **logic**, not specific desk numbers.
+Separate scoreboard block from emissions fundamentals ([Homaio — COT in EU ETS](https://www.homaio.com/post/what-is-the-commitment-of-traders-report-in-the-eu-ets)).
 
 ---
 
@@ -104,8 +90,10 @@ CarbonInsights desk scoreboard rules (emissions demand → EUA bias) align with 
 
 | Row | Wrong | Correct | Why |
 |-----|-------|---------|-----|
-| Emissions −3.7% | Neutral / Bearish | **Bullish** | Lower compliance demand ([EC ETS](https://climate.ec.europa.eu/eu-action/carbon-markets/about-eu-ets_en)) |
-| Solar +19% | Bearish | **Bullish** | RE displaces fossils ([REI 2024](https://www.renewable-ei.org/en/activities/column/REupdate/20241219.php)) |
-| Aviation −13% | Bearish | **Bullish** | Fewer aviation EUAs required ([EASA](https://www.easa.europa.eu/en/domains/environment/eaer/market-based-measures/eu-emissions-trading-system)) |
+| Emissions −3.7% | Bullish / Neutral | **Bearish** | Lower compliance demand → price pressure ([EC ETS](https://climate.ec.europa.eu/eu-action/carbon-markets/about-eu-ets_en)) |
+| Solar +19% | Bullish | **Bearish** | RE displaces fossils ([REI 2024](https://www.renewable-ei.org/en/activities/column/REupdate/20241219.php)) |
+| Aviation −13% | Bullish | **Bearish** | Fewer aviation EUAs required |
+| Fossil gas +21% | Bearish | **Bullish** | Higher burn → more allowance demand |
+| Load +8.6% | Bearish | **Bullish** | Higher demand → more emissions pressure |
 
 Use `eua_bias` + `eua_bias_rule` from `multi_table_desk_briefing` — do not relabel.

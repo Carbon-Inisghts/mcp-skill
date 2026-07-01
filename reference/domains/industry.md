@@ -17,14 +17,14 @@ Use `analyze_industry_emissions`, `analyze_aviation`, or `suggest_dataset` — d
 | Aviation only | `analyze_aviation` |
 | Sector deep-dive | `analyze_table` with `group_by` if available |
 
-## EUA linkage
+## EUA linkage (price lens)
 
-| Signal | EUA read |
-|--------|----------|
-| Aviation emissions ↑ | Bearish EUA |
-| Aviation emissions ↓ | Bullish EUA |
-| Industrial production ↑ | Bearish EUA |
-| Chemical / heavy industry ↓ | Bullish |
+| Signal | EUA price read |
+|--------|----------------|
+| Aviation emissions ↑ | **Bullish** EUA |
+| Aviation emissions ↓ | **Bearish** EUA |
+| Industrial production ↑ | **Bullish** EUA |
+| Chemical / heavy industry ↓ | **Bearish** |
 
 ## Presentation
 

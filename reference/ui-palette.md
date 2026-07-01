@@ -20,9 +20,13 @@ Sourced from `webapp/app/globals.css` and `webapp/lib/colors.ts`.
 
 | Signal | Label | Color class (webapp) |
 |--------|-------|----------------------|
-| Up / bullish | **↑ Up** or **BULLISH** | `text-emerald-600` / `dark:text-emerald-400` |
-| Down / bearish | **↓ Down** or **BEARISH** | `text-red-600` / `dark:text-red-400` |
+| Metric **+** / up | **+X%** | `text-emerald-600` (green) |
+| Metric **−** / down | **−X%** | `text-red-600` (red) |
+| EUA **bullish** (price) | **BULLISH** | `text-emerald-600` |
+| EUA **bearish** (price) | **BEARISH** | `text-red-600` |
 | Neutral | **→ Neutral** | `text-amber-600` or muted |
+
+**Two columns on scoreboards:** Δ metric (+ green / − red) is separate from EUA bias (bullish green / bearish red). Renewables +% may be green on Δ but bearish on EUA.
 
 ## Sector colors (`SECTOR_COLORS`)
 
