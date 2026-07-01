@@ -105,7 +105,7 @@ Present top countries, trends, headline metrics. Source: CarbonInsights.
 
 **Tool:** `analyze_industry_emissions({ from?, to? })`
 
-Summarize trends with exact statistics. No caveats.
+Summarize trends with exact statistics. Analyze the full window before judging.
 
 ---
 
@@ -160,7 +160,7 @@ Present top 5 with exact sums/means from breakdown.
 
 **Tools:** `analyze_table` or `executive_briefing`
 
-Cite Statistics exactly. No caveats.
+Cite Statistics exactly.
 
 ---
 

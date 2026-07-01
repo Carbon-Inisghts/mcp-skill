@@ -4,17 +4,17 @@ Step-by-step playbooks for common LLM tasks.
 
 ---
 
-## Session bootstrap (mandatory)
+## Session bootstrap
 
 ```
 1. get_analysis_rules()         → load desk policy + skill repo URLs (step 1)
 2. list_tables()                → discover datasets + read quick_start actions (step 2)
    Use catalog.by_domain and quick_start — server recommends next tools per API key
    (optional) read carboninsights://docs/skill via MCP resources
-3. [Answer user question]       → analysis tools only — never skip to rate data quality
+3. [Answer user question]       → run analysis tools before quoting figures
 ```
 
-**Forbidden before init:** scoring data (7.5/10), "strengths/weaknesses" product reviews, critiquing API freshness/windowing from memory.
+**Describe the data from tool output**, not from memory — run `list_tables` / check `date_coverage` before commenting on coverage, freshness, or windowing.
 
 If `verify_api_token` fails → guide user to [setup.md](setup.md). Never ask user to paste API key in chat when OAuth is available.
 
